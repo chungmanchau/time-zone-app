@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,600,700);
+
+$colors-list: #eeb934,
+#e7a235,
+#dd7a32,
+#6f64bf,
+#5b52aa,
+#413d93;
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+	color: #FFF;
+}
+.wrapper {
+	width: 25rem;
+	margin: 100px auto;
+	.header {
+		display: flex;
+		flex-direction: row;
+		background: #f2f2f7;
+		font-size: 1.3rem;
+		div {
+			flex-grow: 1;
+			line-height: 3.5rem;
+			text-align: center;
+			color: #9e9bad;
+		}
+		.refresh {
+			width: 4rem;
+			cursor: pointer;
+		}
+		.logo {
+			font-size: 1.8rem;
+			flex-grow: 10;
+		}
+		.add {
+			width: 4rem;
+			cursor: pointer;
+		}
+	}
+	.content-wrapper {
+		overflow: hidden;
+		&.list-view {
+			
+		}
+
+		.timezone {
+			padding: 1rem;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: .5s all ease;
+			transform-origin: right center;
+			transform: perspective( 600px );
+			@each $current-color in $colors-list {
+				$i: index($colors-list, $current-color);
+				&:nth-child(#{$i}) {
+					background: $current-color;
+				}
+			}
+			&:hover {
+				transform: rotateY(45deg);
+				z-index: 1;
+			}
+			&:before {
+				content: "";
+				width: 42%;
+				height: 100%;
+				display: block;
+				height: 5.3rem;
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: rotateY(90deg);
+				background: linear-gradient(to right, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
+				transform-origin: left center;
+			}
+			.location {
+				display: inline-block;
+				margin-bottom: .3rem;
+				.capital {
+					font-weight: bold;
+				}
+				.country {
+					margin-left: .3rem;
+					opacity: .8;
+				}
+			}
+			.date {
+				margin-bottom: .1rem;
+				font-weight: 100;
+				font-size: .7rem;
+				opacity: .8;
+			}
+			.gmt {
+				font-weight: 100;
+				font-size: .7rem;
+				opacity: 8;
+			}
+			.time {
+				line-height: 3.6rem;
+				float: right;
+				font-weight: 100;
+				font-size: 3.7rem;
+				span {
+					
+				}
+				.period {
+					vertical-align: top;
+					float: right;
+					margin-left: .2rem;
+					line-height: auto;
+					font-weight: 300;
+					font-size: .6rem;
+					opacity: .8;
+					line-height: 1rem;
+					
+				}
+			}
+		}
+	}
+	.options {
+		background: #1d1c24;
+		text-align: center;
+		font-size: 1rem;
+		line-height: 4rem;
+		span {
+			color: #a7a4b4;
+		}
+	}
+}

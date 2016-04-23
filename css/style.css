@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,600,700);
 article,
 aside,
 details,
@@ -187,5 +188,107 @@ input[type="search"] {
 input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   padding: 0; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  color: #FFF; }
+
+.wrapper {
+  width: 25rem;
+  margin: 100px auto; }
+  .wrapper .header {
+    display: flex;
+    flex-direction: row;
+    background: #f2f2f7;
+    font-size: 1.3rem; }
+    .wrapper .header div {
+      flex-grow: 1;
+      line-height: 3.5rem;
+      text-align: center;
+      color: #9e9bad; }
+    .wrapper .header .refresh {
+      width: 4rem;
+      cursor: pointer; }
+    .wrapper .header .logo {
+      font-size: 1.8rem;
+      flex-grow: 10; }
+    .wrapper .header .add {
+      width: 4rem;
+      cursor: pointer; }
+  .wrapper .content-wrapper {
+    overflow: hidden; }
+    .wrapper .content-wrapper .timezone {
+      padding: 1rem;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: .5s all ease;
+      transform-origin: right center;
+      transform: perspective(600px); }
+      .wrapper .content-wrapper .timezone:nth-child(1) {
+        background: #eeb934; }
+      .wrapper .content-wrapper .timezone:nth-child(2) {
+        background: #e7a235; }
+      .wrapper .content-wrapper .timezone:nth-child(3) {
+        background: #dd7a32; }
+      .wrapper .content-wrapper .timezone:nth-child(4) {
+        background: #6f64bf; }
+      .wrapper .content-wrapper .timezone:nth-child(5) {
+        background: #5b52aa; }
+      .wrapper .content-wrapper .timezone:nth-child(6) {
+        background: #413d93; }
+      .wrapper .content-wrapper .timezone:hover {
+        transform: rotateY(45deg);
+        z-index: 1; }
+      .wrapper .content-wrapper .timezone:before {
+        content: "";
+        width: 42%;
+        height: 100%;
+        display: block;
+        height: 5.3rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: rotateY(90deg);
+        background: linear-gradient(to right, #1e1d25 0%, #59566d 100%);
+        transform-origin: left center; }
+      .wrapper .content-wrapper .timezone .location {
+        display: inline-block;
+        margin-bottom: .3rem; }
+        .wrapper .content-wrapper .timezone .location .capital {
+          font-weight: bold; }
+        .wrapper .content-wrapper .timezone .location .country {
+          margin-left: .3rem;
+          opacity: .8; }
+      .wrapper .content-wrapper .timezone .date {
+        margin-bottom: .1rem;
+        font-weight: 100;
+        font-size: .7rem;
+        opacity: .8; }
+      .wrapper .content-wrapper .timezone .gmt {
+        font-weight: 100;
+        font-size: .7rem;
+        opacity: 8; }
+      .wrapper .content-wrapper .timezone .time {
+        line-height: 3.6rem;
+        float: right;
+        font-weight: 100;
+        font-size: 3.7rem; }
+        .wrapper .content-wrapper .timezone .time .period {
+          vertical-align: top;
+          float: right;
+          margin-left: .2rem;
+          line-height: auto;
+          font-weight: 300;
+          font-size: .6rem;
+          opacity: .8;
+          line-height: 1rem; }
+  .wrapper .options {
+    background: #1d1c24;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 4rem; }
+    .wrapper .options span {
+      color: #a7a4b4; }
 
 /*# sourceMappingURL=style.css.map */
