@@ -12,6 +12,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	text-transform: uppercase;
 	color: #FFF;
+	background: #373643;
 }
 .wrapper {
 	width: 25rem;
@@ -41,12 +42,12 @@ body {
 		}
 	}
 	.content-wrapper {
-		overflow: hidden;
+		// overflow: hidden;
 		position: relative;
 		z-index: 1;
 
 		.timezone-container {
-			perspective: 1920px;
+			perspective: 1200px;
 			transform-style: preserve-3d;
 			position: relative;
 			transform: rotateY(0deg);
@@ -57,13 +58,46 @@ body {
 				z-index: 2;
 				transition: 0s z-index ease;
 			}
+			&:nth-child(odd) {
+				.timezone-item {
+					&:hover {
+						transform: rotateY(45deg);
+					}
+					.timezone-side {
+						transition: .5s all ease;
+						height:5.3rem;
+						transform: rotateY(90deg) translateZ(0em);
+						background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
+						width: 100%;
+						position: absolute;
+						left: 0;
+						top: 0;
+						transform-origin: left center;
+					}
+				}
+			}
+			&:nth-child(even) {
+				.timezone-item {
+					&:hover {
+						transform: rotateY(-45deg);
+					}
+					.timezone-side {
+						transition: .5s all ease;
+						height:5.3rem;
+						transform: rotateY(-90deg) translateZ(0em);
+						background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
+						width: 100%;
+						position: absolute;
+						right: 0;
+						top: 0;
+						transform-origin: right center;
+					}
+				}
+			}
 			.timezone-item {
-				transform-origin: 90% center;
+				transform-origin: center center -7.8rem;
 				transition: .5s transform ease;
 				transform-style: preserve-3d;
-				&:hover {
-					transform: rotateY(45deg);
-				}
 			}
 			@each $current-color in $colors-list {
 				$i: index($colors-list, $current-color);
@@ -74,18 +108,17 @@ body {
 
 				}
 			}
-			.timezone-side {
-				
-				transition: .5s all ease;
-				height:5.3rem;
-				transform: rotateY(90deg) translateZ(0em);
-				background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
-				width: 100%;
-				position: absolute;
-				left: 0;
-				top: 0;
-				transform-origin: left center;
-			}
+			// .timezone-side {
+			// 	transition: .5s all ease;
+			// 	height:5.3rem;
+			// 	transform: rotateY(90deg) translateZ(0em);
+			// 	background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
+			// 	width: 100%;
+			// 	position: absolute;
+			// 	left: 0;
+			// 	top: 0;
+			// 	transform-origin: left center;
+			// }
 			.timezone {
 				transition: .5s all ease;
 				padding: 1rem;
