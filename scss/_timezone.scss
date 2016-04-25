@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,600,700);
-
 $colors-list: #eeb934,
 #e7a235,
 #dd7a32,
@@ -7,175 +6,239 @@ $colors-list: #eeb934,
 #5b52aa,
 #413d93;
 
+html {
+    height: 100%;
+}
 
 body {
-	font-family: 'Roboto', sans-serif;
-	text-transform: uppercase;
-	color: #FFF;
-	background: #373643;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    padding: 100px 0;
+    text-transform: uppercase;
+    color: #fff;
+    background: #373643;
 }
 .wrapper {
-	width: 25rem;
-	margin: 100px auto;
-	.header {
-		display: flex;
-		flex-direction: row;
-		background: #f2f2f7;
-		font-size: 1.3rem;
-		div {
-			flex-grow: 1;
-			line-height: 3.5rem;
-			text-align: center;
-			color: #9e9bad;
-		}
-		.refresh {
-			width: 4rem;
-			cursor: pointer;
-		}
-		.logo {
-			font-size: 1.8rem;
-			flex-grow: 10;
-		}
-		.add {
-			width: 4rem;
-			cursor: pointer;
-		}
-	}
-	.content-wrapper {
-		// overflow: hidden;
-		position: relative;
-		z-index: 1;
+    width: 25rem;
+    margin: 0 auto;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .5);
+    .header {
+        font-size: 1.3rem;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+                flex-direction: row;
+        background: #f2f2f7;
 
-		.timezone-container {
-			perspective: 1200px;
-			transform-style: preserve-3d;
-			position: relative;
-			transform: rotateY(0deg);
-			perspective-origin: 50% 50%;
-			z-index: 0;
-			transition: 0s z-index ease .5s;
-			&:hover {
-				z-index: 2;
-				transition: 0s z-index ease;
-			}
-			&:nth-child(odd) {
-				.timezone-item {
-					&:hover {
-						transform: rotateY(45deg);
-					}
-					.timezone-side {
-						transition: .5s all ease;
-						height:5.3rem;
-						transform: rotateY(90deg) translateZ(0em);
-						background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
-						width: 100%;
-						position: absolute;
-						left: 0;
-						top: 0;
-						transform-origin: left center;
-					}
-				}
-			}
-			&:nth-child(even) {
-				.timezone-item {
-					&:hover {
-						transform: rotateY(-45deg);
-					}
-					.timezone-side {
-						transition: .5s all ease;
-						height:5.3rem;
-						transform: rotateY(-90deg) translateZ(0em);
-						background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
-						width: 100%;
-						position: absolute;
-						right: 0;
-						top: 0;
-						transform-origin: right center;
-					}
-				}
-			}
-			.timezone-item {
-				transform-origin: center center -7.8rem;
-				transition: .5s transform ease;
-				transform-style: preserve-3d;
-			}
-			@each $current-color in $colors-list {
-				$i: index($colors-list, $current-color);
-				&:nth-child(#{$i}) {
-					.timezone {
-						background: $current-color;
-					}
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+        div {
+            line-height: 3.5rem;
+            text-align: center;
+            color: #9e9bad;
 
-				}
-			}
-			// .timezone-side {
-			// 	transition: .5s all ease;
-			// 	height:5.3rem;
-			// 	transform: rotateY(90deg) translateZ(0em);
-			// 	background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
-			// 	width: 100%;
-			// 	position: absolute;
-			// 	left: 0;
-			// 	top: 0;
-			// 	transform-origin: left center;
-			// }
-			.timezone {
-				transition: .5s all ease;
-				padding: 1rem;
-				position: relative;
-				z-index: 3;
-				transform-origin: left center;
-				.location {
-					display: inline-block;
-					margin-bottom: .3rem;
-					.capital {
-						font-weight: bold;
-					}
-					.country {
-						margin-left: .3rem;
-						opacity: .8;
-					}
-				}
-				.date {
-					margin-bottom: .1rem;
-					font-weight: 100;
-					font-size: .7rem;
-					opacity: .8;
-				}
-				.gmt {
-					font-weight: 100;
-					font-size: .7rem;
-					opacity: 8;
-				}
-				.time {
-					line-height: 3.6rem;
-					float: right;
-					font-weight: 100;
-					font-size: 3.7rem;
-					span {
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+                    flex-grow: 1;
+        }
+        .refresh {
+            width: 4rem;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 1.8rem;
 
-					}
-					.period {
-						float: right;
-						margin-left: .2rem;
-						line-height: auto;
-						font-weight: 300;
-						font-size: .6rem;
-						opacity: .8;
-						line-height: 1rem;
+            -webkit-flex-grow: 10;
+            -ms-flex-positive: 10;
+                    flex-grow: 10;
+        }
+        .add {
+            width: 4rem;
+            cursor: pointer;
+        }
+    }
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
 
-					}
-				}
-			}
-		}
-	}
-	.options {
-		background: #1d1c24;
-		text-align: center;
-		font-size: 1rem;
-		line-height: 4rem;
-		span {
-			color: #a7a4b4;
-		}
-	}
+        -webkit-flex-flow: row wrap;
+            -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+        .timezone-container {
+            position: relative;
+            z-index: 0;
+            transition: 0s z-index ease .5s;
+
+            -webkit-perspective: 1200px;
+                    perspective: 1200px;
+            -webkit-perspective-origin: 50% 50%;
+                    perspective-origin: 50% 50%;
+            @each $current-color in $colors-list {
+                $i: index($colors-list, $current-color);
+                &:nth-child(#{$i}) {
+                    .timezone {
+                        background: $current-color;
+                    }
+                }
+            }
+            &:hover {
+                z-index: 2;
+                transition: 0s all ease;
+            }
+            &:nth-child(odd) {
+                .timezone-item {
+                    -webkit-transform-origin: right center;
+                            transform-origin: right center;
+                    &:hover {
+                        -webkit-transform: rotateY(50deg);
+                                transform: rotateY(50deg);
+                    }
+                    .timezone-side {
+                        -webkit-transform: rotateY(90deg) translateZ(0em);
+                                transform: rotateY(90deg) translateZ(0em);
+                        -webkit-transform-origin: left center;
+                                transform-origin: left center;
+                        background: linear-gradient(to right, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
+                    }
+                }
+            }
+            &:nth-child(even) {
+                .timezone-item {
+                    -webkit-transform-origin: left center;
+                            transform-origin: left center;
+                    &:hover {
+                        -webkit-transform: rotateY(-50deg);
+                                transform: rotateY(-50deg);
+                    }
+                    .timezone-side {
+                        -webkit-transform: rotateY(-90deg) translateZ(0em);
+                                transform: rotateY(-90deg) translateZ(0em);
+                        -webkit-transform-origin: right center;
+                                transform-origin: right center;
+                        background: linear-gradient(to left, rgba(30,29,37,1) 0%, rgba(89,86,109,1) 100%);
+                    }
+                }
+            }
+            .timezone-item {
+                transition: .5s all ease;
+
+                -webkit-transform-style: preserve-3d;
+                        transform-style: preserve-3d;
+            }
+            .timezone-side {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+            .timezone {
+                position: relative;
+                padding: 1rem;
+                .location {
+                    .capital {
+                        font-weight: bold;
+                    }
+                    .country {
+                        margin-left: .3rem;
+                        opacity: .8;
+                    }
+                }
+                .date {
+                    font-size: .7rem;
+                    font-weight: 100;
+                    opacity: .8;
+                }
+                .gmt {
+                    font-size: .7rem;
+                    font-weight: 100;
+                    opacity: 8;
+                }
+                .time {
+                    font-size: 3.7rem;
+                    font-weight: 100;
+                    line-height: 3.6rem;
+                    .period {
+                        font-size: .6rem;
+                        font-weight: 300;
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+        &.grid-view {
+            .timezone-container {
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                        flex-grow: 1;
+                -webkit-flex-basis: 50%;
+                -ms-flex-preferred-size: 50%;
+                        flex-basis: 50%;
+                .timezone-side {
+                    height: 100%;
+                }
+                .timezone {
+                    .location {
+                        margin-bottom: .2rem;
+                        text-align: center;
+                    }
+                    .date {
+                        text-align: center;
+                    }
+                    .gmt {
+                        display: none;
+                    }
+                    .time {
+                        padding-top: .8rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        &.list-view {
+            .timezone-container {
+                -webkit-flex-basis: 100%;
+                -ms-flex-preferred-size: 100%;
+                        flex-basis: 100%;
+                .timezone-item {
+                    -webkit-transform-origin: center center -7.8rem;
+                            transform-origin: center center -7.8rem;
+                }
+                .timezone-side {
+                    height: 5.3rem;
+                }
+                .timezone {
+                    .location {
+                        display: inline-block;
+                        margin-bottom: .3rem;
+                        .country {
+                            margin-left: .3rem;
+                        }
+                    }
+                    .date {
+                        margin-bottom: .1rem;
+                    }
+                    .time {
+                        float: right;
+                        .period {
+                            float: right;
+                            margin-left: .2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .options {
+        font-size: 1rem;
+        line-height: 4rem;
+        cursor: pointer;
+        text-align: center;
+        background: #1d1c24;
+        span {
+            color: #a7a4b4;
+        }
+    }
 }

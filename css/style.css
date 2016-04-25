@@ -189,76 +189,65 @@ input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   padding: 0; }
 
+html {
+  height: 100%; }
+
 body {
   font-family: 'Roboto', sans-serif;
+  height: 100%;
+  padding: 100px 0;
   text-transform: uppercase;
-  color: #FFF;
+  color: #fff;
   background: #373643; }
 
 .wrapper {
   width: 25rem;
-  margin: 100px auto; }
+  margin: 0 auto;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5); }
   .wrapper .header {
+    font-size: 1.3rem;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: row;
     background: #f2f2f7;
-    font-size: 1.3rem; }
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row; }
     .wrapper .header div {
-      flex-grow: 1;
       line-height: 3.5rem;
       text-align: center;
-      color: #9e9bad; }
+      color: #9e9bad;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
     .wrapper .header .refresh {
       width: 4rem;
       cursor: pointer; }
     .wrapper .header .logo {
       font-size: 1.8rem;
+      -webkit-flex-grow: 10;
+      -ms-flex-positive: 10;
       flex-grow: 10; }
     .wrapper .header .add {
       width: 4rem;
       cursor: pointer; }
   .wrapper .content-wrapper {
     position: relative;
-    z-index: 1; }
+    z-index: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap; }
     .wrapper .content-wrapper .timezone-container {
-      perspective: 1200px;
-      transform-style: preserve-3d;
       position: relative;
-      transform: rotateY(0deg);
-      perspective-origin: 50% 50%;
       z-index: 0;
-      transition: 0s z-index ease .5s; }
-      .wrapper .content-wrapper .timezone-container:hover {
-        z-index: 2;
-        transition: 0s z-index ease; }
-      .wrapper .content-wrapper .timezone-container:nth-child(odd) .timezone-item:hover {
-        transform: rotateY(45deg); }
-      .wrapper .content-wrapper .timezone-container:nth-child(odd) .timezone-item .timezone-side {
-        transition: .5s all ease;
-        height: 5.3rem;
-        transform: rotateY(90deg) translateZ(0em);
-        background: linear-gradient(to left, #1e1d25 0%, #59566d 100%);
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform-origin: left center; }
-      .wrapper .content-wrapper .timezone-container:nth-child(even) .timezone-item:hover {
-        transform: rotateY(-45deg); }
-      .wrapper .content-wrapper .timezone-container:nth-child(even) .timezone-item .timezone-side {
-        transition: .5s all ease;
-        height: 5.3rem;
-        transform: rotateY(-90deg) translateZ(0em);
-        background: linear-gradient(to left, #1e1d25 0%, #59566d 100%);
-        width: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transform-origin: right center; }
-      .wrapper .content-wrapper .timezone-container .timezone-item {
-        transform-origin: center center -7.8rem;
-        transition: .5s transform ease;
-        transform-style: preserve-3d; }
+      transition: 0s z-index ease .5s;
+      -webkit-perspective: 1200px;
+      perspective: 1200px;
+      -webkit-perspective-origin: 50% 50%;
+      perspective-origin: 50% 50%; }
       .wrapper .content-wrapper .timezone-container:nth-child(1) .timezone {
         background: #eeb934; }
       .wrapper .content-wrapper .timezone-container:nth-child(2) .timezone {
@@ -271,47 +260,112 @@ body {
         background: #5b52aa; }
       .wrapper .content-wrapper .timezone-container:nth-child(6) .timezone {
         background: #413d93; }
-      .wrapper .content-wrapper .timezone-container .timezone {
-        transition: .5s all ease;
-        padding: 1rem;
-        position: relative;
-        z-index: 3;
+      .wrapper .content-wrapper .timezone-container:hover {
+        z-index: 2;
+        transition: 0s all ease; }
+      .wrapper .content-wrapper .timezone-container:nth-child(odd) .timezone-item {
+        -webkit-transform-origin: right center;
+        transform-origin: right center; }
+        .wrapper .content-wrapper .timezone-container:nth-child(odd) .timezone-item:hover {
+          -webkit-transform: rotateY(50deg);
+          transform: rotateY(50deg); }
+        .wrapper .content-wrapper .timezone-container:nth-child(odd) .timezone-item .timezone-side {
+          -webkit-transform: rotateY(90deg) translateZ(0em);
+          transform: rotateY(90deg) translateZ(0em);
+          -webkit-transform-origin: left center;
+          transform-origin: left center;
+          background: linear-gradient(to right, #1e1d25 0%, #59566d 100%); }
+      .wrapper .content-wrapper .timezone-container:nth-child(even) .timezone-item {
+        -webkit-transform-origin: left center;
         transform-origin: left center; }
-        .wrapper .content-wrapper .timezone-container .timezone .location {
-          display: inline-block;
-          margin-bottom: .3rem; }
-          .wrapper .content-wrapper .timezone-container .timezone .location .capital {
-            font-weight: bold; }
-          .wrapper .content-wrapper .timezone-container .timezone .location .country {
-            margin-left: .3rem;
-            opacity: .8; }
+        .wrapper .content-wrapper .timezone-container:nth-child(even) .timezone-item:hover {
+          -webkit-transform: rotateY(-50deg);
+          transform: rotateY(-50deg); }
+        .wrapper .content-wrapper .timezone-container:nth-child(even) .timezone-item .timezone-side {
+          -webkit-transform: rotateY(-90deg) translateZ(0em);
+          transform: rotateY(-90deg) translateZ(0em);
+          -webkit-transform-origin: right center;
+          transform-origin: right center;
+          background: linear-gradient(to left, #1e1d25 0%, #59566d 100%); }
+      .wrapper .content-wrapper .timezone-container .timezone-item {
+        transition: .5s all ease;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d; }
+      .wrapper .content-wrapper .timezone-container .timezone-side {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; }
+      .wrapper .content-wrapper .timezone-container .timezone {
+        position: relative;
+        padding: 1rem; }
+        .wrapper .content-wrapper .timezone-container .timezone .location .capital {
+          font-weight: bold; }
+        .wrapper .content-wrapper .timezone-container .timezone .location .country {
+          margin-left: .3rem;
+          opacity: .8; }
         .wrapper .content-wrapper .timezone-container .timezone .date {
-          margin-bottom: .1rem;
-          font-weight: 100;
           font-size: .7rem;
+          font-weight: 100;
           opacity: .8; }
         .wrapper .content-wrapper .timezone-container .timezone .gmt {
-          font-weight: 100;
           font-size: .7rem;
+          font-weight: 100;
           opacity: 8; }
         .wrapper .content-wrapper .timezone-container .timezone .time {
-          line-height: 3.6rem;
-          float: right;
+          font-size: 3.7rem;
           font-weight: 100;
-          font-size: 3.7rem; }
+          line-height: 3.6rem; }
           .wrapper .content-wrapper .timezone-container .timezone .time .period {
-            float: right;
-            margin-left: .2rem;
-            line-height: auto;
-            font-weight: 300;
             font-size: .6rem;
-            opacity: .8;
-            line-height: 1rem; }
+            font-weight: 300;
+            opacity: .8; }
+    .wrapper .content-wrapper.grid-view .timezone-container {
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      -webkit-flex-basis: 50%;
+      -ms-flex-preferred-size: 50%;
+      flex-basis: 50%; }
+      .wrapper .content-wrapper.grid-view .timezone-container .timezone-side {
+        height: 100%; }
+      .wrapper .content-wrapper.grid-view .timezone-container .timezone .location {
+        margin-bottom: .2rem;
+        text-align: center; }
+      .wrapper .content-wrapper.grid-view .timezone-container .timezone .date {
+        text-align: center; }
+      .wrapper .content-wrapper.grid-view .timezone-container .timezone .gmt {
+        display: none; }
+      .wrapper .content-wrapper.grid-view .timezone-container .timezone .time {
+        padding-top: .8rem;
+        text-align: center; }
+    .wrapper .content-wrapper.list-view .timezone-container {
+      -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%; }
+      .wrapper .content-wrapper.list-view .timezone-container .timezone-item {
+        -webkit-transform-origin: center center -7.8rem;
+        transform-origin: center center -7.8rem; }
+      .wrapper .content-wrapper.list-view .timezone-container .timezone-side {
+        height: 5.3rem; }
+      .wrapper .content-wrapper.list-view .timezone-container .timezone .location {
+        display: inline-block;
+        margin-bottom: .3rem; }
+        .wrapper .content-wrapper.list-view .timezone-container .timezone .location .country {
+          margin-left: .3rem; }
+      .wrapper .content-wrapper.list-view .timezone-container .timezone .date {
+        margin-bottom: .1rem; }
+      .wrapper .content-wrapper.list-view .timezone-container .timezone .time {
+        float: right; }
+        .wrapper .content-wrapper.list-view .timezone-container .timezone .time .period {
+          float: right;
+          margin-left: .2rem; }
   .wrapper .options {
-    background: #1d1c24;
-    text-align: center;
     font-size: 1rem;
-    line-height: 4rem; }
+    line-height: 4rem;
+    cursor: pointer;
+    text-align: center;
+    background: #1d1c24; }
     .wrapper .options span {
       color: #a7a4b4; }
 
